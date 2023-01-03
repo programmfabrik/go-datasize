@@ -1,6 +1,6 @@
-# datasize [![Build Status](https://travis-ci.org/c2h5oh/datasize.svg?branch=master)](https://travis-ci.org/c2h5oh/datasize)
+# datasize
 
-Golang helpers for data sizes
+Golang helpers for data sizes. This is a fork from [github.com/c2h5oh/datasize](https://github.com/c2h5oh/datasize). This fork included UnmarshalJSON with the support for numbers.
 
 ### Constants
 

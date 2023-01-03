@@ -1,6 +1,7 @@
 package datasize
 
 import (
+	"encoding/json"
 	"errors"
 	"fmt"
 	"strconv"
@@ -107,6 +108,23 @@ func (b ByteSize) HumanReadable() string {
 	default:
 		return fmt.Sprintf("%d B", b)
 	}
+}
+
+func (b *ByteSize) UnmarshalJSON(t []byte) (err error) {
+	var d any
+	err = json.Unmarshal(t, &d)
+	if err != nil {
+		return err
+	}
+	switch v := d.(type) {
+	case string:
+		return b.UnmarshalText([]byte(v))
+	case float64:
+		*b = ByteSize(v)
+	default:
+		return fmt.Errorf("Unable to unmarshal %q to datasize.ByteSize", string(t))
+	}
+	return nil
 }
 
 func (b ByteSize) MarshalText() ([]byte, error) {

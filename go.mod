@@ -1,1 +1,3 @@
-module github.com/c2h5oh/datasize
+module github.com/programmfabrik/go-datasize
+
+go 1.19

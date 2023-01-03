@@ -1,9 +1,7 @@
-package datasize_test
+package datasize
 
 import (
 	"testing"
-
-	. "github.com/c2h5oh/datasize"
 )
 
 func TestMarshalText(t *testing.T) {
